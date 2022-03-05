@@ -1,15 +1,16 @@
 // ==UserScript==
-// @name         有一个人前来买瓜
+// @name         有一个人前来买瓜_v3.0
 // @namespace    http://iik.moe/
-// @version      2.0
+// @version      3.0
 // @description  never thought to crack
 // @author       这瓜不保熟   QQ：3561812864
 // @match        http://www.gewulab.com/*
-// @include      http://www.gewulab.com/*
-// @grant        none
+// @include      https://www.gewulab.com/*
+// @grant        GM_xmlhttpRequest
+// @connect      iseeyou140.club
 // @require      https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js
 // @require      http://gewulab.com/bundles/topxiaweb/js/controller/quiz-question/report/float.js?v7.5.23
-// @require      http://iseeyou140.club:4349/myjs/jquery3.0.js
+// @require      http://iseeyou140.club:4349/myjs/jquery3.3.1.js
 // @require      http://gewulab.com/bundles/topxiaweb/js/controller/quiz-question/report/judge.js?v7.5.23
 // @icon         https://pic2.zhimg.com/v2-8baa6c2b9e93a34e464c8c65a2513e7e_xl.jpg
 // @run-at       document-end
@@ -237,7 +238,7 @@ function UploadData(){
         'length':dataquery.length,
        }
         $.ajax({
-                url: 'http://iseeyou140.club:1009/gewulab/data/',
+                url: 'http://iseeyou140.club:4197/gewulab/data/',
                 type: 'post',
                 data: data_list,
                 success: function (res) {
@@ -252,7 +253,7 @@ function DataInsert(){
         var question_id = this.getAttribute("question_id");
         var obj = $(this);
                 $.ajax({
-                url: 'http://iseeyou140.club:1009/gewulab/get/',
+                url: 'http://iseeyou140.club:4197/gewulab/get/',
                 type: 'post',
                 data: {
                     question_id:question_id,
