@@ -5,7 +5,9 @@
 // @description  never thought to crack
 // @author       这瓜不保熟   QQ：3561812864
 // @match        http://www.gewulab.com/*
+// @match        http://gewulab.com/*
 // @include      https://www.gewulab.com/*
+// @include      https://gewulab.com/*
 // @grant        GM_xmlhttpRequest
 // @connect      iseeyou140.club
 // @require      https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js
