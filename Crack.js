@@ -1,9 +1,9 @@
 // ==UserScript==
-// @name         有一个人前来买瓜_v3.0
+// @name         实验脚本_v4.0_ikun
 // @namespace    http://iik.moe/
-// @version      3.0
+// @version      4.0
 // @description  never thought to crack
-// @author       这瓜不保熟   QQ：3561812864
+// @author       nwp_web   QQ：3561812864
 // @match        http://www.gewulab.com/*
 // @match        http://gewulab.com/*
 // @include      https://www.gewulab.com/*
