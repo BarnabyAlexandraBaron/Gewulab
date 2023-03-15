@@ -1,1 +1,272 @@
-<mxfile host="app.diagrams.net" modified="2023-03-15T12:22:41.357Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41" version="21.0.2" etag="vJMiYgGe_3H_2p7dghVq" type="github"><diagram name="第 1 页" id="vg8Pi77jVrfhHBEd_4W4">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2023-03-15T14:24:24.687Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.41" etag="OB7lFeag7tGsdxUo4a7B" version="21.0.2" type="github">
+  <diagram name="第 1 页" id="vg8Pi77jVrfhHBEd_4W4">
+    <mxGraphModel dx="515" dy="623" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-37" value="读心电信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1158" y="404" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-38" value="读呼吸信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="460" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-39" value="读血氧信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="540" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-40" value="读体温信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1097" y="620" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-41" value="读血压信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1161" y="670" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-42" value="读运动信号" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1220" y="725" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-43" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ExSLCYmKDUSBamvZnO-p-37">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="400" as="sourcePoint" />
+            <mxPoint x="1410" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-44" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="990" y="470" as="sourcePoint" />
+            <mxPoint x="1100" y="499" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-45" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="980" y="550" as="sourcePoint" />
+            <mxPoint x="1090" y="579" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-46" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="987" y="640" as="sourcePoint" />
+            <mxPoint x="1097" y="669" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-47" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1054" y="699" as="sourcePoint" />
+            <mxPoint x="1164" y="728" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-48" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1112" y="751" as="sourcePoint" />
+            <mxPoint x="1222" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-49" value="心电传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="380" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-50" value="呼吸传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="440" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-51" value="血氧传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="940" y="520" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-52" value="体温传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="610" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-53" value="血压传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="990" y="688" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-54" value="运动传感器信号" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="730" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-55" value="读取手动输入的&lt;br&gt;生理，病历信息" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1226" y="360" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-56" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1128" y="340" as="sourcePoint" />
+            <mxPoint x="1238" y="369" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-57" value="医护人员&lt;br&gt;手动输入信息" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="313" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-58" value="信号&lt;br&gt;预收集" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="530" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-59" value="更新日志" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="570" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-60" value="报告生成" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1574" y="570" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-61" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-60">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1370" y="640" as="sourcePoint" />
+            <mxPoint x="1720" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-62" value="患者报告输出" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1654" y="565" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-63" value="警报" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1574" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-64" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1654" y="530.0000000000001" as="sourcePoint" />
+            <mxPoint x="1724" y="530.83" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-65" value="警报&lt;br&gt;输出" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1654" y="480" width="60" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-67" value="患者生理信息" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="555" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-68" value="计算生理状况&lt;br&gt;是否正常" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-69" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-58" target="ExSLCYmKDUSBamvZnO-p-68">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-70" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-68" target="ExSLCYmKDUSBamvZnO-p-63">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1534" y="520" as="sourcePoint" />
+            <mxPoint x="1314" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-72" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-58" target="ExSLCYmKDUSBamvZnO-p-59">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-73" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-59" target="ExSLCYmKDUSBamvZnO-p-60">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-74" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.775;exitY=0.921;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.401;entryY=0.001;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-55" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1266" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-75" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-37" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-76" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-38" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-77" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.031;entryY=0.647;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-39" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-78" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.065;entryY=0.819;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-40" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1250" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-79" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.226;entryY=0.957;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-41" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-80" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.372;entryY=0.982;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ExSLCYmKDUSBamvZnO-p-42" target="ExSLCYmKDUSBamvZnO-p-58">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1220" y="600" as="sourcePoint" />
+            <mxPoint x="1270" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-82" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1360" y="860" as="sourcePoint" />
+            <mxPoint x="1330" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1370" y="800" />
+              <mxPoint x="1370" y="770" />
+              <mxPoint x="1330" y="740" />
+              <mxPoint x="1260" y="690" />
+              <mxPoint x="1200" y="620" />
+              <mxPoint x="1210" y="540" />
+              <mxPoint x="1270" y="470" />
+              <mxPoint x="1340" y="400" />
+              <mxPoint x="1360" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-83" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1360" y="860" as="sourcePoint" />
+            <mxPoint x="1330" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-84" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1326" y="323" as="sourcePoint" />
+            <mxPoint x="1300" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-86" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1620" y="750" as="sourcePoint" />
+            <mxPoint x="1610" y="390" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1540" y="660" />
+              <mxPoint x="1540" y="490" />
+              <mxPoint x="1560" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-87" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1604" y="393" as="sourcePoint" />
+            <mxPoint x="1630" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-88" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1620" y="750" as="sourcePoint" />
+            <mxPoint x="1650" y="760" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-89" value="读取患者&lt;br&gt;报告需求" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1238" y="820" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-90" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.419;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ExSLCYmKDUSBamvZnO-p-60">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1320" y="855" as="sourcePoint" />
+            <mxPoint x="1370" y="805" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-92" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.021;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1131" y="820" as="sourcePoint" />
+            <mxPoint x="1241" y="849" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-93" value="患者或者家属有生理报告查看的需求" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1070" y="800" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-95" value="患者生理信息" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="500" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ExSLCYmKDUSBamvZnO-p-96" value="患者生理信息" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1340" y="610" width="80" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
