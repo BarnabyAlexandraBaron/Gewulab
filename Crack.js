@@ -1,26 +1,29 @@
 // ==UserScript==
-// @name         实验脚本_v4.0_ikun
+// @name         短期复活版本_Gewulab_大物实验_工科物理实验_脚本_v7.0_ikun
+// @license MIT
 // @namespace    http://iik.moe/
-// @version      4.0
-// @description  never thought to crack
-// @author       nwp_web   QQ：3561812864
+// @version      4.6
+// @description  never thought to crack USTB 物理实验脚本，自动化计算物理实验数据。好用的话，给一个star叭，https://github.com/BarnabyAlexandraBaron/
+// @author       QQ：3561812864
 // @match        http://www.gewulab.com/*
 // @match        http://gewulab.com/*
 // @include      https://www.gewulab.com/*
 // @include      https://gewulab.com/*
 // @grant        GM_xmlhttpRequest
-// @connect      39.106.205.37
-// @require      https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js
+// @connect      121.196.247.89
 // @require      http://gewulab.com/bundles/topxiaweb/js/controller/quiz-question/report/float.js?v7.5.23
-// @require      http://39.106.205.37:4349/myjs/jquery3.3.1.js
 // @require      http://gewulab.com/bundles/topxiaweb/js/controller/quiz-question/report/judge.js?v7.5.23
 // @icon         https://pic2.zhimg.com/v2-8baa6c2b9e93a34e464c8c65a2513e7e_xl.jpg
 // @run-at       document-end
+// @downloadURL https://update.greasyfork.org/scripts/514816/Gewulab_%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C_%E5%B7%A5%E7%A7%91%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C_%E8%84%9A%E6%9C%AC_v46_ikun.user.js
+// @updateURL https://update.greasyfork.org/scripts/514816/Gewulab_%E5%A4%A7%E7%89%A9%E5%AE%9E%E9%AA%8C_%E5%B7%A5%E7%A7%91%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C_%E8%84%9A%E6%9C%AC_v46_ikun.meta.js
 // ==/UserScript==
 
 function b64toString(str) {
     return decodeURIComponent(escape(atob(str)))
 }
+
+let FLAG = true;
 
 function Report() {
     this.question = {};
@@ -197,6 +200,60 @@ function Report() {
     };
 }
 
+function ClearData() {
+    // 拿到所有ID
+    var id_list = [];
+    var dataquery = document.getElementsByTagName('question_data');
+    for (var i = 0; i < dataquery.length; i++) {
+        var obj = document.getElementsByTagName('question_data')[i];
+        var id = obj.getAttribute("question_id");
+        id_list.push(id);
+    }
+    // 根据所有id遍历所有的value
+    for (var iii = 0; iii < id_list.length; iii++) { // id的遍历
+        $('#helpers'+id_list[iii]).remove();
+    }
+}
+
+function RenewTheData() {
+    // 拿到所有ID
+    var id_list = [];
+    var dataquery = document.getElementsByTagName('question_data');
+    for (var i = 0; i < dataquery.length; i++) {
+        var obj = document.getElementsByTagName('question_data')[i];
+        var id = obj.getAttribute("question_id");
+        id_list.push(id);
+    }
+    // 根据所有id遍历所有的value
+    for (var i = 0; i < id_list.length; i++) { // id的遍历
+        // 根据id拿到value
+        var true_value = [];
+        var truly_input = $('input[name=' + id_list[i] + ']');
+        for(var j=0;j<truly_input.length;j++){
+            true_value.push(truly_input[j].value);//value 去更新 answer
+        }
+        // 根据id定位answer位置
+        var obj = $('question_data[question_id=' + id_list[i] + ']');
+        // 根据answer位置写入truevalue
+        var answers_obj = obj.find('answers answer');
+        if (answers_obj.length > 1) {
+                    var x = 0;
+                    answers_obj.each(function (k, v) {
+                        [$(v).text(true_value[x++])];
+                    });
+                } else {
+                    var x = 0;
+                    [answers_obj.text(true_value[x++])];
+                }
+    }
+}
+
+function ReHelp(){
+    RenewTheData();
+    ClearData();
+    ReportHelp();
+}
+
 function ReportHelp(){'use strict';
     var ignorelist = ["8032"];
     console.log("Loading judge scripts ...")
@@ -205,17 +262,36 @@ function ReportHelp(){'use strict';
     _r.initialize();
     console.log(_r.question[8017]);
     for (var im in _r.question) {
+        if(FLAG){
+            // 加上评分规则信息
+            var Rule_Info = b64toString($('question_data[question_id="'+im+'"] rule').text());
+            if(Rule_Info != ""){
+            $('#question' + im).append("<div style='display: block;'>"+Rule_Info+"</div><br><br><br><br>");}
+            else{
+                $('#question' + im).append('<span style="display:block;float:left;"><b>评分规则：</b></span><span style="display:block;float:left;margin-bottom:8px;">暂无评分规则</span><br><br><br><br>');
+            }
+            // 加上重新计算的button
+            var button = document.createElement("button");
+            button.textContent = "重新计算";
+            button.className="label label-primary testpaper-status-doing";
+            button.addEventListener('click', ReHelp); // 绑定 ReHelp 函数
+            $('#question' + im).append(button);
+        }
         var c = document.createElement("div");
-        c.innerHTML = "<span style='color:#aaaaaa'>标准答案：" + _r.question[im].standard() + "  得分：" + _r.question[im].judge() + "</span>";
+        c.style = "display: inline-block";
+        c.innerHTML = "<span style='color:#aaaaaa'>   标准答案：" + _r.question[im].standard() + "  得分：" + _r.question[im].judge() + "</span>";
         c.setAttribute('id', 'helpers' + im);
         $('#question' + im).append(c);
+        // alert("here1");
     }
+    FLAG = false;
     setInterval(function () {
         console.info("updating judge");
         _r.initialize();
         for (var jm in _r.question) {
             if (!jm in ignorelist) {
                 $("#helpers" + jm).innerHTML = "<span style='color:#ddd'>标准答案：" + _r.question[jm].standard() + "  得分：" + _r.question[jm].judge() + "</span>";
+                // alert("here2");
             }
         }
     }, 1000);
@@ -240,7 +316,7 @@ function UploadData(){
         'length':dataquery.length,
        }
         $.ajax({
-                url: 'http://39.106.205.37:4197/gewulab/data/',
+                url: 'http://121.196.247.89:4197/gewulab/data/',
                 type: 'post',
                 data: data_list,
                 success: function (res) {
@@ -255,7 +331,7 @@ function DataInsert(){
         var question_id = this.getAttribute("question_id");
         var obj = $(this);
                 $.ajax({
-                url: 'http://39.106.205.37:4197/gewulab/get/',
+                url: 'http://121.196.247.89:4197/gewulab/get/',
                 type: 'post',
                 data: {
                     question_id:question_id,
