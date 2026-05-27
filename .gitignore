@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.db
+*.sqlite
+*.sqlite3
+*.bak*
+audit_report.txt
+server_audit.sh
+map_photoelectric.py
+patch_planck_error.py

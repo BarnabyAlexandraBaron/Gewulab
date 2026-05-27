@@ -2,7 +2,7 @@
 // @name         短期复活版本_Gewulab_大物实验_工科物理实验_脚本_v7.0_ikun
 // @license MIT
 // @namespace    http://iik.moe/
-// @version      4.6
+// @version      4.7
 // @description  never thought to crack USTB 物理实验脚本，自动化计算物理实验数据。好用的话，给一个star叭，https://github.com/BarnabyAlexandraBaron/
 // @author       QQ：3561812864
 // @match        http://www.gewulab.com/*
@@ -24,6 +24,55 @@ function b64toString(str) {
 }
 
 let FLAG = true;
+let _updateIntervalId = null;
+
+const API_BASE = 'http://121.196.247.89:4197';
+const DEBUG = false;
+
+function debugLog() {
+    if (DEBUG) {
+        console.log.apply(console, arguments);
+    }
+}
+
+function debugWarn() {
+    if (DEBUG) {
+        console.warn.apply(console, arguments);
+    }
+}
+
+function normalizeApiResponse(res) {
+    if (typeof res !== 'string') {
+        return String(res || '');
+    }
+    try {
+        var parsed = JSON.parse(res);
+        if (typeof parsed === 'string') {
+            return parsed;
+        }
+    } catch (e) {
+        // The response may already be plain XML-like tags.
+    }
+    return res;
+}
+
+function appendQuestionPayload(question_id, obj, res) {
+    var payload = normalizeApiResponse(res);
+    if (payload.indexOf('<standard>') === -1) {
+        debugWarn('[Gewulab] question payload missing standard tag:', question_id, payload.slice(0, 120));
+        return false;
+    }
+    obj.append(payload);
+    return true;
+}
+
+function getSchoolId() {
+    var raw = $('.studentNum').text().trim();
+    var match = raw.match(/U?\d{6,}/i);
+    var school_id = match ? match[0] : raw;
+    debugLog('[Gewulab] school_id:', school_id, 'raw:', raw);
+    return school_id;
+}
 
 function Report() {
     this.question = {};
@@ -88,6 +137,9 @@ function Report() {
         $.each(questions_obj, function (k, v) {
             question_id = $(v).attr('question_id');
             this_type = $(v).find('type').text();
+            if (num[this_type] === undefined) {
+                num[this_type] = 1;
+            }
             sort_id = this_type + '' + num[this_type];
             self_obj.qmap[sort_id] = question_id;
             num[this_type]++;
@@ -95,26 +147,7 @@ function Report() {
     };
 
     this.get_rule_html = function (question_id) {
-        var rule_html = '';
-        var rules;
-        rules = this.question[question_id].rule;
-        return rules;
-        for (var i = 0; i < rules.length; i++) {
-            var type = rules[i].type;
-            var number = rules[i].value;
-            var del_score = rules[i].score;
-            if (type == 'dec') {
-                rule_html = rule_html + '保留小数' + number + '位，扣分' + del_score + '分' + '<br/>';
-            } else if (type == 'eff') {
-                rule_html = rule_html + '有效位数' + number + '位，扣分' + del_score + '分' + '<br/>';
-            } else if (type == 'per') {
-                rule_html = rule_html + '误差百分比±' + number + '%，扣分' + del_score + '分' + '<br/>';
-            } else {
-                rule_html = rule_html + '误差数值±' + number + '，扣分' + del_score + '分' + '<br/>';
-            }
-
-        }
-        return rule_html;
+        return this.question[question_id].rule;
     };
 
     this.get_error_info = function (question_id) {
@@ -153,10 +186,10 @@ function Report() {
         answers_obj = obj.find('answers answer');
         if (answers_obj.length > 1) {
             answers_obj.each(function (k, v) {
-                answers.push([$(v).text()]);
+                answers.push($(v).text());
             });
         } else {
-            answers.push([answers_obj.text()]);
+            answers.push(answers_obj.text());
         }
         info.answers = answers;
 
@@ -239,11 +272,10 @@ function RenewTheData() {
         if (answers_obj.length > 1) {
                     var x = 0;
                     answers_obj.each(function (k, v) {
-                        [$(v).text(true_value[x++])];
+                        $(v).text(true_value[x++]);
                     });
                 } else {
-                    var x = 0;
-                    [answers_obj.text(true_value[x++])];
+                    answers_obj.text(true_value[0]);
                 }
     }
 }
@@ -285,12 +317,15 @@ function ReportHelp(){'use strict';
         // alert("here1");
     }
     FLAG = false;
-    setInterval(function () {
+    if (_updateIntervalId !== null) {
+        clearInterval(_updateIntervalId);
+    }
+    _updateIntervalId = setInterval(function () {
         console.info("updating judge");
         _r.initialize();
         for (var jm in _r.question) {
-            if (!jm in ignorelist) {
-                $("#helpers" + jm).innerHTML = "<span style='color:#ddd'>标准答案：" + _r.question[jm].standard() + "  得分：" + _r.question[jm].judge() + "</span>";
+            if (ignorelist.indexOf(jm) === -1) {
+                $("#helpers" + jm).html("<span style='color:#ddd'>标准答案：" + _r.question[jm].standard() + "  得分：" + _r.question[jm].judge() + "</span>");
                 // alert("here2");
             }
         }
@@ -326,22 +361,88 @@ function UploadData(){
     }
     }
 
-function DataInsert(){
-    $("question_data").each(function(){
+function DataInsert(done){
+    var question_nodes = $("question_data");
+    var total = question_nodes.length;
+    var completed = 0;
+    var succeeded = 0;
+    var failed = 0;
+    var school_id = getSchoolId();
+
+    function finishOne() {
+        completed++;
+        if (completed >= total) {
+            debugLog('[Gewulab] DataInsert finished:', {
+                total: total,
+                succeeded: succeeded,
+                failed: failed,
+            });
+            if (typeof done === 'function') {
+                done();
+            }
+        }
+    }
+
+    if (total === 0) {
+        debugWarn('[Gewulab] no question_data nodes found');
+        if (typeof done === 'function') {
+            done();
+        }
+        return;
+    }
+
+    question_nodes.each(function(){
         var question_id = this.getAttribute("question_id");
         var obj = $(this);
-                $.ajax({
-                url: 'http://121.196.247.89:4197/gewulab/get/',
-                type: 'post',
-                data: {
-                    question_id:question_id,
-                    school_id:$('.studentNum').text(),
+
+        if (typeof GM_xmlhttpRequest === 'function') {
+            GM_xmlhttpRequest({
+                method: 'POST',
+                url: API_BASE + '/gewulab/get/',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
                 },
-                success: function (res) {
-                    res=res.replace(/\"/g, "");//去除string的引号
-                    obj.append(res);
-                }
+                data: 'question_id=' + encodeURIComponent(question_id) + '&school_id=' + encodeURIComponent(school_id),
+                onload: function (response) {
+                    debugLog('[Gewulab] POST', question_id, response.status, response.finalUrl || '');
+                    if (response.status >= 200 && response.status < 300 && appendQuestionPayload(question_id, obj, response.responseText)) {
+                        succeeded++;
+                    } else {
+                        failed++;
+                    }
+                    finishOne();
+                },
+                onerror: function (error) {
+                    failed++;
+                    debugWarn('[Gewulab] POST failed', question_id, error);
+                    finishOne();
+                },
             });
+            return;
+        }
+
+        $.ajax({
+            url: API_BASE + '/gewulab/get/',
+            type: 'post',
+            dataType: 'text',
+            data: {
+                question_id: question_id,
+                school_id: school_id,
+            },
+            success: function (res, textStatus, xhr) {
+                debugLog('[Gewulab] POST', question_id, xhr.status);
+                if (appendQuestionPayload(question_id, obj, res)) {
+                    succeeded++;
+                } else {
+                    failed++;
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                failed++;
+                debugWarn('[Gewulab] POST failed', question_id, xhr.status, textStatus, errorThrown);
+            },
+            complete: finishOne,
+        });
     });
     }
 
@@ -351,7 +452,7 @@ function StartCrack(){
     newnode.innerHTML="备用按钮，脚本会自动执行";
     newnode.className="label label-primary testpaper-status-doing";
     newnode.onclick=function(){
-        ReportHelp();
+        ReHelp();
         //alert("脚本执行成功");
     };
     document.getElementsByClassName('testpaper-status')[0].append(newnode);
@@ -361,6 +462,5 @@ function StartCrack(){
 (function () {
     'use strict';
     //UploadData();
-    DataInsert();
-    StartCrack();
+    DataInsert(StartCrack);
 })();
